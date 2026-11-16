@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IA Educativa · Unidad Educativa «La Unión»</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--n:#080F20;--p:#142B49;--c:#20C8D8;--w:#fff;--g:#D0D9E8;--r:18px;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--n);color:var(--g);font:400 1.02rem/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;color:var(--w);line-height:1.15;margin:0 0 .6rem}
+h2{font-size:clamp(1.6rem,4.5vw,2.4rem)}h3{font-size:1.1rem}
+a{color:var(--c)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(8,15,32,.9);backdrop-filter:blur(10px);border-bottom:1px solid #20c8d826}
+nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:auto;padding:.6rem 1rem}
+.logo{font:800 1.1rem Sora;color:var(--w);text-decoration:none}.logo b{color:var(--c)}
+#menu{display:flex;gap:.2rem;flex-wrap:wrap}
+#menu a{color:var(--g);text-decoration:none;padding:.35rem .6rem;border-radius:99px;font-size:.85rem;transition:.2s}
+#menu a:hover,#menu a:focus-visible{background:var(--p);color:var(--c)}
+#bt{display:none;background:var(--p);color:var(--w);border:1px solid var(--c);border-radius:10px;padding:.4rem .7rem;font-size:1rem}
+@media(max-width:900px){#bt{display:block}#menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--n);padding:.6rem 1rem 1rem;flex-direction:column}#menu.open{display:flex}#menu a{font-size:1rem;padding:.6rem}}
+section{max-width:1100px;margin:auto;padding:4rem 1.1rem}
+.lead{max-width:62ch}
+#inicio{display:grid;gap:2rem;align-items:center;min-height:82vh;grid-template-columns:1.1fr .9fr;padding-top:2.5rem}
+@media(max-width:800px){#inicio{grid-template-columns:1fr}}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 75% 30%,#20c8d824,transparent 55%),radial-gradient(ellipse at 10% 90%,#142B49,transparent 60%)}
+h1{font-size:clamp(2.8rem,10vw,5.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.3rem}
+.sub{font:700 clamp(1.2rem,3.5vw,1.7rem) Sora;color:var(--c)}
+.chip{display:inline-block;border:1px solid #20c8d855;color:var(--c);padding:.2rem .8rem;border-radius:99px;font-size:.85rem;margin:0 .4rem .4rem 0;background:#142B4988}
+.btn{display:inline-block;background:var(--c);color:var(--n);font-weight:700;border:0;border-radius:99px;padding:.8rem 1.6rem;text-decoration:none;cursor:pointer;font-size:1rem;transition:.25s;box-shadow:0 0 0 #20c8d800}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 8px 28px #20c8d855}
+.btn.o{background:transparent;color:var(--c);border:1px solid var(--c)}
+#brain{width:100%;height:auto;filter:drop-shadow(0 0 22px #20c8d866)}
+.card{background:linear-gradient(160deg,var(--p),#0d1c35);border:1px solid #20c8d822;border-radius:var(--r);padding:1.2rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.ed{outline:0;border-bottom:1px dashed #20c8d877;min-height:1.6em;border-radius:4px;transition:.2s}
+.ed:focus{background:#20c8d814;border-bottom-style:solid}
+.ed:empty::before{content:attr(data-ph);color:#8ea0bd}
+.tl{border-left:2px solid var(--c);margin:1.5rem 0 0 .5rem;padding-left:1.4rem;display:grid;gap:1.1rem}
+.tl div{position:relative}.tl div::before{content:"";position:absolute;left:-1.85rem;top:.45rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.tl b{color:var(--c);font-family:Sora}
+details.s{background:var(--p);border:1px solid #20c8d822;border-radius:var(--r);transition:.25s;align-self:start}
+details.s:hover,details.s[open]{border-color:var(--c);box-shadow:0 0 24px #20c8d822}
+details.s summary{cursor:pointer;list-style:none;padding:1rem;display:flex;align-items:center;gap:.8rem;font:700 1rem Sora;color:var(--w)}
+details.s summary::-webkit-details-marker{display:none}
+details.s summary i{font-style:normal;font-size:1.6rem;width:2.8rem;height:2.8rem;display:grid;place-items:center;background:var(--n);border-radius:14px;border:1px solid #20c8d844}
+details.s summary::after{content:"+";margin-left:auto;color:var(--c);font-size:1.4rem}
+details.s[open] summary::after{content:"–"}
+.sb{padding:0 1rem 1rem;font-size:.93rem;animation:op .3s}
+.sb p{margin:.5rem 0}.sb b{color:var(--c)}
+@keyframes op{from{opacity:0;transform:translateY(-6px)}}
+.two{display:grid;gap:1rem;grid-template-columns:1fr 1fr}@media(max-width:760px){.two{grid-template-columns:1fr}}
+.pro{border-top:3px solid var(--c)}.con{border-top:3px solid #ff8a8a}
+.pro li::marker{color:var(--c)}.con li::marker{color:#ff8a8a}
+ul{padding-left:1.2rem}li{margin:.5rem 0}
+.q{margin:1rem 0}.q p{font-weight:600;color:var(--w);margin:.2rem 0}
+.q label{display:block;padding:.55rem .8rem;margin:.3rem 0;border:1px solid #20c8d833;border-radius:12px;cursor:pointer;transition:.2s}
+.q label:hover{border-color:var(--c);background:#20c8d812}
+.q input{accent-color:var(--c);margin-right:.5rem}
+.ok{border-color:#3ddc97!important;background:#3ddc9718!important}.bad{border-color:#ff8a8a!important;background:#ff8a8a18!important}
+.ex{font-size:.88rem;color:var(--g);margin:.2rem 0 0}
+.res{font:700 1.3rem Sora;color:var(--c)}
+.tf{display:flex;gap:.6rem;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.8rem 0;border-bottom:1px solid #20c8d822}
+.tf span{flex:1 1 260px}
+.tf button{margin-left:.3rem}
+.fld small{color:var(--c);font-weight:600;display:block}
+.fld{margin-bottom:.9rem}
+.note{background:#20c8d812;border:1px dashed var(--c);border-radius:12px;padding:.7rem 1rem;font-size:.9rem}
+footer{border-top:1px solid #20c8d822;text-align:center;padding:2.5rem 1rem 3rem;color:var(--g)}
+footer q{display:block;max-width:60ch;margin:0 auto 1rem;font:600 1.15rem Sora;color:var(--w)}
+#top{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));width:3rem;height:3rem;border-radius:50%;border:1px solid var(--c);background:var(--p);color:var(--c);font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:20}
+#top.v{opacity:1;pointer-events:auto}
+.rv{opacity:0;transform:translateY(18px);transition:.7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+</style>
+</head>
+<body>
+<header><nav><a class="logo" href="#inicio">IA<b> Educativa</b></a><button id="bt" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<div id="menu"><a href="#ia">¿Qué es la IA?</a><a href="#edu">IA y educación</a><a href="#materias">Asignaturas</a><a href="#vd">Ventajas y riesgos</a><a href="#etica">Uso ético</a><a href="#zona">Zona interactiva</a></div></nav></header>
+<main>
+<section id="inicio">
+<div class="hero-bg"></div>
+<div>
+<span class="chip">Unidad Educativa «La Unión» · La Unión – Quinindé – Esmeraldas</span>
+<h1>IA EDUCATIVA</h1>
+<p class="sub">El futuro del aprendizaje comienza hoy.</p>
+<p class="lead">Innovación, aprendizaje y transformación del conocimiento en la era digital.</p>
+<p class="lead"><b style="color:#fff">«La inteligencia artificial y el impacto en la educación: innovación, aprendizaje y transformación del conocimiento en la era digital».</b></p>
+<p><span class="chip">FREIRE ALEJANDRO</span><span class="chip">GONZÁLEZ LUIS</span><span class="chip">ARGUELLO JAIME</span></p>
+<p>3ro de Bachillerato · Paralelo [PARALELO] · Tercer trimestre · 17–23 nov. 2026</p>
+<p><a class="btn" href="#ia">Explorar proyecto</a> <a class="btn o" href="#materias">Ver las 19 asignaturas</a></p>
+<p class="note"><b>Objetivo general:</b> analizar el impacto de la inteligencia artificial en la educación y en los campos del conocimiento, integrando las asignaturas de Bachillerato mediante la investigación, el pensamiento crítico y el trabajo cooperativo.</p>
+</div>
+<svg id="brain" viewBox="0 0 400 340" role="img" aria-label="Ilustración de un cerebro digital hecho de nodos conectados"></svg>
+</section>
+
+<section id="ia" class="rv">
+<h2>¿Qué es la inteligencia artificial?</h2>
+<p class="lead">La IA es un campo de la informática que crea sistemas capaces de realizar tareas que normalmente requieren inteligencia humana: reconocer imágenes, entender lenguaje, aprender de datos o tomar decisiones.</p>
+<div class="grid">
+<div class="card"><h3>Cómo funciona</h3><p>Se entrena a un modelo con muchos datos. El modelo detecta patrones y luego los usa para predecir o generar respuestas nuevas. No «entiende» como una persona: calcula probabilidades.</p></div>
+<div class="card"><h3>Características</h3><p>Aprende de datos, se adapta, automatiza tareas, procesa grandes cantidades de información y mejora con el uso, pero puede equivocarse.</p></div>
+<div class="card"><h3>Tipos</h3><p><b style="color:#fff">IA estrecha:</b> hace una tarea concreta (la que usamos hoy). <b style="color:#fff">IA generativa:</b> crea texto, imágenes o audio. <b style="color:#fff">IA general:</b> hipotética, aún no existe.</p></div>
+<div class="card"><h3>En la vida diaria</h3><p>Recomendaciones de videos y música, traductores, asistentes de voz, desbloqueo facial, mapas con tráfico y filtros de correo no deseado.</p></div>
+<div class="card"><h3>Herramientas conocidas</h3><p>ChatGPT, Gemini, Claude, Copilot, Canva (funciones de IA), Google Translate, Duolingo.</p></div>
+</div>
+<h3 style="margin-top:2rem">Línea de tiempo</h3>
+<div class="tl">
+<div><b>1950</b> · Alan Turing publica «Computing Machinery and Intelligence» y plantea si las máquinas pueden pensar.</div>
+<div><b>1956</b> · En la conferencia de Dartmouth se adopta el término «inteligencia artificial».</div>
+<div><b>1997</b> · Deep Blue, de IBM, vence al campeón de ajedrez Garry Kasparov.</div>
+<div><b>2011</b> · Watson, de IBM, gana el concurso de televisión Jeopardy!</div>
+<div><b>2016</b> · AlphaGo, de DeepMind, vence a Lee Sedol en el juego de Go.</div>
+<div><b>2022</b> · ChatGPT se lanza al público y la IA generativa llega a las aulas.</div>
+</div>
+</section>
+
+<section id="edu" class="rv">
+<h2>IA en la educación</h2>
+<p class="lead">La IA cambia cómo se enseña y se aprende: ofrece explicaciones a cualquier hora, adapta el ritmo de estudio y ahorra tiempo en tareas repetitivas.</p>
+<div class="grid">
+<div class="card"><h3>Para estudiantes</h3><p>Explica un tema de otra forma, genera ejercicios de práctica, resume textos y da retroalimentación inmediata sobre un borrador.</p></div>
+<div class="card"><h3>Para docentes</h3><p>Ayuda a preparar planificaciones, rúbricas, cuestionarios y materiales adaptados a distintos niveles.</p></div>
+<div class="card"><h3>Herramientas</h3><p>Khan Academy (Khanmigo), Duolingo, GeoGebra, Canva, Google Classroom, NotebookLM, asistentes como ChatGPT, Gemini o Claude.</p></div>
+<div class="card"><h3>Ejemplo sencillo</h3><p><i>Ejemplo ilustrativo:</i> un estudiante no entiende las fracciones; pide una explicación con pizzas, practica con 5 ejercicios y luego revisa cada resultado con su cuaderno.</p></div>
+<div class="card"><h3>Limitaciones</h3><p>No sustituye al docente, puede dar datos falsos, no conoce el contexto de cada aula y depende de tener internet y dispositivos.</p></div>
+<div class="card"><h3>Riesgos</h3><p>Copiar sin leer, compartir datos personales, confiar ciegamente en las respuestas y perder el hábito de pensar por cuenta propia.</p></div>
+</div>
+</section>
+
+<section id="materias" class="rv">
+<h2>La IA en las 19 asignaturas</h2>
+<p class="lead">Toca cada tarjeta para abrirla. Las actividades son <b style="color:#fff">ejemplos ilustrativos</b>: en todas, la IA apoya, pero el estudiante verifica y razona.</p>
+<div class="grid" id="subj"></div>
+</section>
+
+<section id="vd" class="rv">
+<h2>Ventajas y desventajas</h2>
+<div class="two">
+<div class="card pro"><h3>Ventajas</h3><ul>
+<li>Facilita el acceso a la información.</li><li>Personaliza el aprendizaje.</li><li>Ayuda a comprender contenidos complejos.</li><li>Favorece la creación de recursos educativos.</li><li>Facilita la investigación y la resolución de problemas.</li><li>Promueve competencias digitales.</li></ul></div>
+<div class="card con"><h3>Desventajas y riesgos</h3><ul>
+<li>Dependencia excesiva de la tecnología.</li><li>Información incorrecta o poco confiable.</li><li>Menos pensamiento crítico si se usa sin reflexión.</li><li>Plagio y falta de originalidad.</li><li>Riesgos para la privacidad.</li><li>Desigualdad en el acceso a recursos tecnológicos.</li></ul></div>
+</div>
+</section>
+
+<section id="etica" class="rv">
+<h2>Decálogo de uso ético y responsable</h2>
+<div class="grid" id="dec"></div>
+</section>
+
+<section id="zona" class="rv">
+<h2>Zona interactiva</h2>
+<div class="card"><h3>Cuestionario: IA y educación</h3><div id="quiz"></div>
+<button class="btn" id="chk">Comprobar respuestas</button> <button class="btn o" id="rst">Reiniciar</button>
+<p class="res" id="qres" aria-live="polite"></p></div>
+<div class="card" style="margin-top:1rem"><h3>Verdadero o falso</h3><div id="tf"></div><p class="res" id="tres" aria-live="polite"></p></div>
+</section>
+
+</main>
+<footer><q>La inteligencia artificial puede transformar la educación, pero el conocimiento, la creatividad y el pensamiento humano son los que construyen el futuro.</q>
+<p>Unidad Educativa «La Unión» · Proyecto interdisciplinar · 3er trimestre 2026</p><a class="btn o" href="#inicio">Volver al inicio</a></footer>
+<button id="top" aria-label="Volver al inicio">↑</button>
+<script>
+const $=s=>document.querySelector(s),E=(h)=>h;
+// Cerebro digital (SVG)
+(()=>{const s=$('#brain');let n=[],x=7;const r=()=>(x=(x*16807)%2147483647)/2147483647;
+while(n.length<70){const a=r()*6.283,d=Math.sqrt(r());const px=200+Math.cos(a)*d*165,py=165+Math.sin(a)*d*125;if(py>270&&px>200)continue;n.push([px,py])}
+let h='<defs><radialGradient id="gg"><stop offset="0" stop-color="#20C8D8"/><stop offset="1" stop-color="#142B49" stop-opacity="0"/></radialGradient></defs><ellipse cx="200" cy="165" rx="190" ry="150" fill="url(#gg)" opacity=".18"/>';
+n.forEach((a,i)=>n.forEach((b,j)=>{if(j>i&&Math.hypot(a[0]-b[0],a[1]-b[1])<52)h+=`<line x1="${a[0]|0}" y1="${a[1]|0}" x2="${b[0]|0}" y2="${b[1]|0}" stroke="#20C8D8" stroke-opacity=".35"/>`}));
+n.forEach(a=>h+=`<circle cx="${a[0]|0}" cy="${a[1]|0}" r="${2+r()*2.5|0}" fill="#fff"/>`);
+h+='<path d="M200 40V300" stroke="#20C8D8" stroke-opacity=".4" stroke-dasharray="4 6"/>';s.innerHTML=h})();
+// Datos de asignaturas: [icono, nombre, relación, aplicaciones, herramientas, actividad, reflexión]
+const S=[
+["➗","Matemáticas","La IA trabaja con datos y patrones, igual que las matemáticas.","Cálculo, gráficos, estadística, interpretación de datos y resolución guiada.","GeoGebra, Desmos, Photomath, Wolfram Alpha","Resolver una ecuación a mano, comprobarla con Photomath y explicar cualquier diferencia.","La IA calcula rápido; justificar el razonamiento sigue siendo humano."],
+["📖","Lengua y Literatura","Los modelos de lenguaje procesan y generan texto.","Mejorar redacción, analizar textos, detectar errores de coherencia y cohesión.","LanguageTool, Diccionario de la lengua española (RAE), Gemini, ChatGPT","Escribir un ensayo sobre IA, pedir sugerencias de mejora y decidir cuáles aceptar.","Escribir bien es pensar bien: la voz propia no se delega."],
+["🏛️","Historia","La IA ayuda a buscar, ordenar y comparar fuentes históricas.","Líneas de tiempo, resúmenes de fuentes, mapas y archivos digitalizados.","Google Arts & Culture, TimelineJS, Perplexity","Armar una línea de tiempo de la IA y contrastar cada fecha en una fuente confiable.","Conocer la historia de la tecnología nos enseña a usarla con criterio."],
+["⚛️","Física","Los simuladores y modelos predictivos usan leyes físicas y datos.","Simulación de fenómenos, análisis de movimiento y modelado.","PhET, Tracker, Desmos","Simular un tiro parabólico en PhET y comparar con la fórmula del cuaderno.","Simular ayuda a ver lo invisible, pero la ley física debe entenderse."],
+["🧪","Química","La IA predice propiedades y comportamientos de moléculas.","Estructuras moleculares, simulación de reacciones, análisis de sustancias.","MolView, PhET, Labster","Observar en MolView la estructura del agua y del CO₂ y explicar sus diferencias.","Experimentar virtualmente reduce riesgos, no reemplaza al laboratorio."],
+["🧬","Biología","La IA analiza grandes volúmenes de datos de seres vivos y salud.","Genética, identificación de especies, estudio del cuerpo humano, cuidado ambiental.","iNaturalist, BioDigital Human, AlphaFold DB","Identificar plantas de la zona con iNaturalist y registrar los resultados.","Entender la vida con datos exige ética y cuidado del ambiente."],
+["💡","Emprendimiento y Gestión","La IA acelera la idea, el prototipo y el análisis de mercado.","Lluvia de ideas, análisis de necesidades, planes de negocio básicos.","Canva, Google Forms, ChatGPT, Business Model Canvas","Diseñar una idea de emprendimiento educativo y validarla con una encuesta propia.","Una buena idea nace de una necesidad real, no de la herramienta."],
+["🧾","Paquetes Contables","La IA automatiza registros y organiza información contable.","Registro de operaciones, hojas de cálculo, automatización de tareas.","Excel, Google Sheets, Contífico","Registrar 5 operaciones en una hoja de cálculo y revisar con un asistente si hay errores.","Automatizar no exime de entender cada asiento."],
+["🌐","Inglés","Los traductores y tutores de IA practican idiomas contigo.","Vocabulario, pronunciación, comprensión y traducción.","Duolingo, DeepL, Google Translate, ELSA Speak","Presentar «Artificial intelligence in education» y practicar la pronunciación con una app.","Aprender un idioma es comunicarse con personas; la IA es solo el entrenador."],
+["🎨","Educación Cultural y Artística","La IA genera imágenes, música y diseños a partir de instrucciones.","Recursos artísticos digitales, ilustración, edición de audio.","Canva, Adobe Firefly, Audacity","Crear un afiche con IA, citar la herramienta y explicar qué parte es creación propia.","Crear es expresarse; respetar los derechos de autor es respetar a otros."],
+["🏃","Educación Física","Sensores y videos permiten analizar el movimiento.","Técnica deportiva, seguimiento del rendimiento y rutinas.","Kinovea, apps de seguimiento de actividad","Grabar un salto y analizar el movimiento cuadro a cuadro con Kinovea.","Los datos orientan, pero el cuerpo y el entrenador deciden."],
+["🤔","Filosofía","La IA plantea preguntas sobre pensamiento, libertad y responsabilidad.","Debate ético, análisis de sesgos y de autonomía del pensamiento.","Debates guiados con chatbots, Stanford Encyclopedia of Philosophy","Debatir si una IA puede «pensar» y argumentar con ideas de Turing.","Pensar por cuenta propia es lo que nos hace libres."],
+["🤝","Ciudadanía","El uso de la IA implica derechos y deberes digitales.","Protección de datos, inclusión educativa y responsabilidad ciudadana.","Be Internet Awesome (Google), Have I Been Pwned","Revisar la configuración de privacidad de una app y proponer 3 reglas de uso seguro.","Ser ciudadano digital es cuidar los datos propios y los ajenos."],
+["📑","Tributación","La IA explica trámites y ordena información fiscal.","Facturación electrónica, comprensión de obligaciones, gestión de documentos.","Portal del SRI, Excel, asistentes de IA para explicar conceptos","Simular una factura electrónica y pedir a un asistente que explique cada campo; verificar en el SRI.","Las normas fiscales cambian: la fuente oficial manda."],
+["📊","Gestión Contable","La IA clasifica y analiza datos financieros.","Clasificación de informació
